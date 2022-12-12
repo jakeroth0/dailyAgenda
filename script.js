@@ -3,7 +3,6 @@
 // in the html.
 $(function () {
   // this variable is set as the current hour in military time
-  var currentHour = dayjs().hour()
   var hour9 = $('#hour-9');
   var hour10 = $('#hour-10');
   var hour11 = $('#hour-11');
@@ -228,6 +227,8 @@ $(function () {
 
   //This for loop runs through all of the hour-x ID's and plugs them
   // in, checks the conditionals, and itterates through the rest of the list
+  setInterval(function (){
+    var currentHour = dayjs().hour()
   for (let i = 0; i < hourX.length; i++) {
     if(currentHour > (i+9)) {
       hourX[i].attr('class', 'row time-block past');
@@ -239,16 +240,18 @@ $(function () {
     if(currentHour < (i+9)) {
       hourX[i].attr('class', 'row time-block future');
     }
-  }
+  }}, 1000);
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.
-
-  //today is equal the value of dayjs() 
-  var today = dayjs();
-  // we target current day and add text
-  // the format of time is set within the format()
-$('#currentDay').text(today.format('[Today is] MMM D, YYYY, h:mm a'));
+  // setInterval makes the time refresh every second (1000)
+  setInterval(function (){
+    //today is equal the value of dayjs() 
+    var today = dayjs();
+    // we target current day and add text
+    $('#currentDay').text(today.format('[Today is] MMM D, YYYY, h:mm a'));
+    // the format of time is set within the format()
+  }, 1000);
 });

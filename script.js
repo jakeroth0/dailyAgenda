@@ -13,8 +13,8 @@ $(function () {
   var hour3 = $('#hour-3');
   var hour4 = $('#hour-4');
   var hour5 = $('#hour-5');
-  console.log(currentHour)
-  console.log(hour9)
+  const hourX =[hour9, hour10, hour11, hour12, hour1, hour2, hour3, hour4, hour5];
+
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -22,6 +22,21 @@ $(function () {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
 
+  // renderLastSaved();
+
+  // for(let i=0; i < hourX.length; i++) {
+  //   var hourBtn = hourX[i].children('button');
+  //   var hourForm = hourX[i].children('textarea');
+  //   hourBtn.on('click', function (){
+  //     // hourValue = hourForm.value;
+  //     hourForm.textContent = hourValue;
+  //     localStorage.setItem("hourValue", hourValue);
+  //     renderLastSaved();
+  //   })
+  // }
+  // function renderLastSaved() {
+  //   hourForm.text(localStorage.getItem('hourValue'));
+  // }
   // 9 Local Storage
   // getting the button and connecting it to js
   var hour9Btn = hour9.children('button');
@@ -211,105 +226,20 @@ $(function () {
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
 
-  // a list of conditionals that change the color depending
-  // on the value true/false
-  
-  if(currentHour > 9) {
-    hour9.attr('class', 'row time-block past');
+  //This for loop runs through all of the hour-x ID's and plugs them
+  // in, checks the conditionals, and itterates through the rest of the list
+  for (let i = 0; i < hourX.length; i++) {
+    if(currentHour > (i+9)) {
+      hourX[i].attr('class', 'row time-block past');
+    }
+    // .attr targets the container's class and writes over the class
+    if(currentHour == (i+9)) {
+      hourX[i].attr('class', 'row time-block present');
+    }
+    if(currentHour < (i+9)) {
+      hourX[i].attr('class', 'row time-block future');
+    }
   }
-  // .attr targets the container's class and writes over the class
-  if(currentHour == 9) {
-    hour9.attr('class', 'row time-block present');
-  }
-  if(currentHour < 9) {
-    hour9.attr('class', 'row time-block future');
-  }
-
-  if(currentHour > 10) {
-    hour10.attr('class', 'row time-block past');
-  }
-  if(currentHour == 10) {
-    hour10.attr('class', 'row time-block present');
-  }
-  if(currentHour < 10) {
-    hour10.attr('class', 'row time-block future');
-  }
-  
-  if(currentHour > 11) {
-    hour11.attr('class', 'row time-block past');
-  }
-  if(currentHour == 11) {
-    hour11.attr('class', 'row time-block present');
-  }
-  if(currentHour < 11) {
-    hour11.attr('class', 'row time-block future');
-  }
-
-  if(currentHour > 12) {
-    hour12.attr('class', 'row time-block past');
-  }
-  if(currentHour == 12) {
-    hour12.attr('class', 'row time-block present');
-  }
-  if(currentHour < 12) {
-    hour12.attr('class', 'row time-block future');
-  }
-  
-  if(currentHour > 13) {
-    hour1.attr('class', 'row time-block past');
-  }
-  if(currentHour == 13) {
-    hour1.attr('class', 'row time-block present');
-  }
-  if(currentHour < 13) {
-    hour1.attr('class', 'row time-block future');
-  }
-
-  if(currentHour > 14) {
-    hour2.attr('class', 'row time-block past');
-  }
-  if(currentHour == 14) {
-    hour2.attr('class', 'row time-block present');
-  }
-  if(currentHour < 14) {
-    hour2.attr('class', 'row time-block future');
-  }
-  
-  if(currentHour > 15) {
-    hour3.attr('class', 'row time-block past');
-  }
-  if(currentHour == 15) {
-    hour3.attr('class', 'row time-block present');
-  }
-  if(currentHour < 15) {
-    hour3.attr('class', 'row time-block future');
-  }
-
-  if(currentHour > 16) {
-    hour4.attr('class', 'row time-block past');
-  }
-  if(currentHour == 16) {
-    hour4.attr('class', 'row time-block present');
-  }
-  if(currentHour < 16) {
-    hour4.attr('class', 'row time-block future');
-  }
-
-  if(currentHour > 17) {
-    hour5.attr('class', 'row time-block past');
-  }
-  if(currentHour == 17) {
-    hour5.attr('class', 'row time-block present');
-  }
-  if(currentHour < 17) {
-    hour5.attr('class', 'row time-block future');
-  }
-
-// if I could get a variable to that was equal to the 9 id's then I could replace
-// hourx variables
-// If I could get the integer value from the class ID variable then I could replace the
-// integer with a variable
-
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?

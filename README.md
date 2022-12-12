@@ -34,4 +34,4 @@ THEN the saved events persist
 
 ## Screenshot
 
-![Screen Shot](https://github.com/jakeroth0/dailyAgenda/blob/eae8a155043f79fa4c211805fb77301760a945a7/Assets/Screen%20Shot%202022-12-11%20at%207.08.32%20PM.png)
+![Screen Shot](https://github.com/jakeroth0/dailyAgenda/blob/3b2bfc71e47af7d762c0da65062e525d7e4c2f1f/Assets/screenShotDailyAgendaV2.png)
